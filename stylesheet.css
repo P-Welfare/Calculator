@@ -1,0 +1,67 @@
+html {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: black;
+    border-width: 45px;
+    border-radius: 20px;
+   
+   padding: 10px;
+
+    background-color: green;
+}
+#display {
+    display: flex;
+    width: 400px;
+    height: 100px;
+    background-color: red;
+    justify-content: right;
+    align-items: last baseline;
+    margin: 10px;
+    padding: 5px;
+}
+
+
+
+#row1 {
+    display: flex;
+    gap: 2px;
+    
+    justify-content: center;
+   
+}
+
+#row2 {
+    display: flex;
+    gap: 2px;
+    
+}
+
+#row3 {
+    display: flex;
+    gap: 2px;
+    justify-content: space-evenly;
+}
+
+#row4 {
+    display: flex;
+    gap: 2px;
+    justify-content: space-evenly;
+   
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    margin: 2px;
+    padding: 2px;
+    background-color: yellow;
+}
