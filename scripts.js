@@ -3,7 +3,6 @@ let secondNumber = '';
 let operator = null;
 let displayValue = '';
 
-
 const display = document.getElementById('display');
 const numberButtons = document.querySelectorAll('.numbers');
 const operatorButtons = document.querySelectorAll('.operator');
@@ -31,9 +30,13 @@ operatorButtons.forEach((button) =>
   button.addEventListener('click', () => setOperator(button.value)));
 
 function setOperator(value) {
+  if (operator !== null)  calculate();
+   
+ 
   operator = value;
   firstNumber = Number(display.textContent);
   display.textContent = '';
+   
 };
 
 equalsButton.addEventListener('click', calculate);
