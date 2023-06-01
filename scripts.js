@@ -22,7 +22,7 @@ clearButton.addEventListener('click', () => {
   secondNumber = '';
   operator = null;
   display.textContent = '';
-
+  displayValue = '';
 
 });
 
@@ -35,6 +35,7 @@ function setOperator(value) {
  
   operator = value;
   firstNumber = Number(display.textContent);
+  displayValue = display.textContent;
   display.textContent = '';
    
 };
@@ -46,12 +47,14 @@ function calculate() {
     alert("Dont divide by 0 dummy")
     secondNumber = "";
     firstNumber = "";
-    operator = null
-    display.textContent = ""
+    operator = null;
+    display.textContent = "";
+    displayValue = '';
     return
   }
   secondNumber = Number(display.textContent);
   display.textContent = operate(operator,firstNumber,secondNumber);
+  displayValue = display.textContent;
 }
 
 function add(firstNumber,secondNumber) {
