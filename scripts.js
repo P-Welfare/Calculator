@@ -13,7 +13,15 @@ numberButtons.forEach((button) =>
     button.addEventListener('click', () => appendNumber(button.value)));
 
 function appendNumber(number) {
-     display.textContent += number;
+     if (secondNumber === "") {
+      display.textContent += number;
+     }
+     else {
+      display.textContent = "";
+      display.textContent += number;
+     }
+     
+     
     
 };
 
@@ -29,16 +37,6 @@ clearButton.addEventListener('click', () => {
 operatorButtons.forEach((button) => 
   button.addEventListener('click', () => setOperator(button.value)));
 
-function setOperator(value) {
-  if (operator !== null)  calculate();
-   
- 
-  operator = value;
-  firstNumber = Number(display.textContent);
-  displayValue = display.textContent;
-  display.textContent = '';
-   
-};
 
 equalsButton.addEventListener('click', calculate);
 
@@ -51,14 +49,28 @@ function calculate() {
     display.textContent = "";
     displayValue = '';
     return
-  }
+ 
+    }
+  if (secondNumber !== "") {
+    secondNumber = display.textContent;
+    display.textContent = operate(operator,firstNumber,secondNumber);
+    displayValue = display.textContent;
+    
+  } else
+{  
   secondNumber = Number(display.textContent);
+  display.textContent = "";
   display.textContent = operate(operator,firstNumber,secondNumber);
   displayValue = display.textContent;
-}
+  
+   };
+
+
+
+};
 
 function add(firstNumber,secondNumber) {
-   return firstNumber+secondNumber;
+   return Number(firstNumber)+Number(secondNumber);
 }
 
 function subtract(firstNumber,secondNumber) {
@@ -74,9 +86,11 @@ function divide(firstNumber,secondNumber) {
 };
 
 function operate(operator,firstNumber,secondNumber) {  
+ 
+  
       
     if (operator === "+") {
-        return add(firstNumber,secondNumber);
+        return Number(add(firstNumber,secondNumber));
     } else if (operator === "-") {
         return subtract(firstNumber,secondNumber)
   } else if (operator === "*") {
@@ -84,9 +98,26 @@ function operate(operator,firstNumber,secondNumber) {
   } else if (operator === "/") {
       return  divide(firstNumber,secondNumber)
     }
-};
+  
+  };
 
 
+  function setOperator(value) {
+    if (firstNumber !== "") {
+     
+      calculate();
+      operator = value;
+      firstNumber = displayValue;
+      display.textContent = displayValue;
+      } else {
+  
+   operator = value;
+   firstNumber = Number(display.textContent);
+   displayValue = display.textContent;
+   display.textContent = '';
+       }
+ };
+ 
 
 
 
